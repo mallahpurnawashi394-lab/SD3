@@ -1,0 +1,54 @@
+Hotel 
+Represents a hotel property that contains multiple rooms and general features. 
+Attributes: id, name, location, address, features: List<Feature>, rooms: List<Room> 
+Methods: addFeature(), listFeatures(), addRoom(), listRooms(), printDetails() 
+Relationships: Superclass of Room; aggregates Feature and Address. 
+
+Room (Subclass of Hotel) 
+Represents an individual hotel room available for booking. 
+Attributes: roomNumber, pricePerNight, available, maxOccupancy, features: List<Feature>, reviews: List<Review> 
+Methods: addFeature(), listFeatures(), addReview(), listReviews(), getAverageRating(), setAvailable(), printDetails() (overrides parent method) 
+
+Feature 
+Represents additional amenities or characteristics of a hotel or room. 
+Attributes: featureName, description 
+Methods: printDetails() 
+Used by: Hotel, Room (composition) 
+
+User 
+Represents someone using the system to search or book rooms. 
+Attributes: name, email, userType 
+Methods: printDetails() 
+
+HotelManager (extends User) 
+Represents hotel managers who can list and manage hotels and rooms. 
+Attributes: hotelsManaged: List<Hotel> 
+Methods: addHotel(), viewBookings(), printDetails() 
+
+Customer (extends User) 
+Specialized user type who books hotel rooms and may have preferences. 
+Attributes: loyaltyPoints, preferences: List<String> 
+Methods: searchByBudget(), searchByLocation(), printDetails() 
+
+Address 
+Stores detailed location information for hotels. 
+Attributes: street, city, country, postcode 
+Methods: printDetails() 
+Used by: Hotel 
+
+Booking 
+Represents a booking made by a customer for a specific room. 
+Attributes: bookingId, user, room, checkInDate, checkOutDate, totalGuests 
+Methods: confirmBooking(), cancelBooking(), printDetails() 
+Used by: User, Room 
+
+Payment 
+Handles payments for bookings. 
+Attributes: paymentId, bookingId, amount, status 
+Methods: processPayment(), refund(), printDetails() 
+
+Review 
+Represents customer feedback for rooms. 
+Attributes: rating, comment, reviewer, room 
+Methods: printReview(), getRating() 
+Used by: Room, Customer
