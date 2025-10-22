@@ -1,6 +1,6 @@
 Hotel 
 Represents a hotel property that contains multiple rooms and general features. 
-Attributes: id, name, location, address, features: List<Feature>, rooms: List<Room> 
+Attributes: id, name, street name, postcode, features: List<Feature>, rooms: List<Room> 
 Methods: addFeature(), listFeatures(), addRoom(), listRooms(), printDetails() 
 Relationships: Superclass of Room; aggregates Feature and Address. 
 
